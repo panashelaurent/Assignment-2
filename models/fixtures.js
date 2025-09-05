@@ -13,8 +13,9 @@ const Fixtures = (sequelize) => {
             },
 
             fixture_code: {
-                type: DataTypes.UUID,
+                type: DataTypes.STRING,
                 allowNull: false,
+                unique: true,
             },
 
             day: {
