@@ -9,10 +9,10 @@ export const createFixture = async (req, res) => {
  
 
     try {
-        const { error } = fixturesSchema.validate(data, {abortEarly: false});
+        const { error } = fixturesSchema.validate(req.body, {abortEarly: false});
         if (error) return res.status(400).json({ error: error.details[0].message });
 
-        const newProduct = await Fixture.create(req.body);
+        await Fixture.create(req.body);
         res.status(201).json({ message: 'Fixture created successfully' });
 
     } catch (error) {
